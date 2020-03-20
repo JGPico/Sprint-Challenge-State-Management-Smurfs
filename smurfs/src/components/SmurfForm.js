@@ -34,7 +34,7 @@ function SmurfForm({errors, touched}) {
                 name='height'
                 placeholder='Smurf height'></Field>
 
-                <button className='submit-button' type='submit'>Add Smurf</button>
+                <button className='submit-button' type='submit'>Ajouter Smurf</button>
             </Form>
         </div>
     );
@@ -49,9 +49,9 @@ const SmurfFormF = withFormik({
         }
     },
     validationSchema: Yup.object().shape({
-        name: Yup.string().required('Must Enter Name, Boy!'),
-        age: Yup.string().required('Smurf age be mandatory!'),
-        height: Yup.string().required('You need a height')
+        name: Yup.string().required('Il faut entrer un nom valide!'),
+        age: Yup.string().required("L'age du Smurf c'est obligatoire"),
+        height: Yup.string().required("Il a besoin d'une hauteur")
     }),
     handleSubmit(values, { resetForm }) {
         axios.post('http://localhost:3333/smurfs', values).then(response => {
